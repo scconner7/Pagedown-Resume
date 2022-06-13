@@ -12,81 +12,39 @@ output:
 #knit: pagedown::chrome_print
 ---
 
-
-Aside
-================================================================================
-```{r include = F}
-
-library(magick)
-
-hs_path <- "images/Close.jpg"
-
-hs_read <- magick::image_read(hs_path)
-
-hs_info <- magick::image_info(hs_read)
-
-hs_mins <- min(hs_info$width, hs_info$height)
-
-hs_crop <- magick::image_crop(hs_read, geometry = paste0(hs_mins, "x", hs_mins, "+400+0"), repage = T)
-
-new_bg <- magick::image_draw(magick::image_blank(hs_mins, hs_mins))
-symbols(hs_mins/2, hs_mins/2, circles=(hs_mins/2)-3, bg='black', inches=FALSE, add=TRUE)
-dev.off()
-
-hs_bg_composite <- magick::image_composite(hs_crop, new_bg, operator='copyopacity')
-
-final_circular_hs <- magick::image_background(hs_bg_composite, '#f5f8fc')
-
-magick::image_write(final_circular_hs, "images/Close_Circular.jpg")
-
-```
-Contact Info {#contact}
---------------------------------------------------------------------------------
-
-- <i class="fa fa-envelope"></i> scconner7@gmail.com
-- <i class="fa fa-github"></i> [github.com/Lydisis](https://github.com/Lydisis)
-- <i class="fa fa-phone"></i> +1 601-490-5086
-- For more information, please contact me via email.
-
-<i class="fa fa-laptop"></i> Data Analytics Skills {#skills}
---------------------------------------------------------------------------------
-
-```{r, message=F, warning=F, echo = F, fig.height=14, fig.width=18}
+```{r setup, include = F}
 
 library(tidyverse)
 
-technical_skill_bar_data <- tibble(skills = c("R", "SQL", "Tableau", "Git", "Python"),
-                         levels = c(8, 7, 7, 6, 4))
+```
 
 
-# technical_skill_bar_data %>% 
-#   ggplot(aes(x = levels, y = fct_rev(fct_reorder2(skills, skills, levels)))) +
-#   geom_bar(fill = "#ffe6e8", aes(x = 8), stat = "identity", color = "light gray", size = 1)+
-#   geom_bar(fill = "navy blue", stat = "identity", color = "light gray", size = 0.75)+
-#   theme_classic()+
-#   theme(axis.title = element_blank(),
-#         axis.ticks = element_blank(),
-#         axis.line = element_blank(),
-#         axis.text.x = element_blank(),
-#         axis.text.y = element_text(margin = margin(0,-15,0,0),
-#                                    size = 80,
-#                                    face = "bold",
-#                                    color = "#737373"),
-#         plot.background = element_rect(fill = "#f5f8fc"),
-#         panel.background = element_rect(fill = "#f5f8fc"))
+Aside
+================================================================================
+
+Contact Info {#contact}
+--------------------------------------------------------------------------------
+- <i class="fa fa-envelope"></i> scconner7@gmail.com
+- <i class="fa fa-phone"></i> +1 601-490-5086
+- <i class="fa fa-github"></i> [github.com/scconner7](https://github.com/scconner7)
+
+
+<i class="fa fa-toolbox"></i> Languages and Tools {#languages}
+--------------------------------------------------------------------------------
+```{r, message=F, warning=F, echo = F, fig.height=14, fig.width=18}
 
 create_skill_bar_data <-
   function(max_skill_level,
            skill_names,
            skill_levels) {
-    
     skill_col <- function(skill_names, max_skill_level) {
       skill_names %>%
-        map( ~ rep(.x, max_skill_level)) %>%
+        map(~ rep(.x, max_skill_level)) %>%
         reduce(c)
     }
     
-    df <- data.frame(skill = skill_col(skill_names, max_skill_level))
+    df <-
+      data.frame(skill = skill_col(skill_names, max_skill_level))
     
     max_level_col <- function(max_skill_level, skill_names) {
       rep(1:max_skill_level, length(skill_names))
@@ -97,7 +55,7 @@ create_skill_bar_data <-
     
     skill_level_col <- function(skill_levels, max_skill_level) {
       skill_levels %>%
-        map( ~ c(rep("Fill", .x), rep("Empty", max_skill_level - .x))) %>%
+        map(~ c(rep("Fill", .x), rep("Empty", max_skill_level - .x))) %>%
         reduce(c)
     }
     
@@ -107,103 +65,109 @@ create_skill_bar_data <-
     df
   }
 
-test <- create_skill_bar_data(5, c("R", "SQL", "Tableau", "Git", "Python"), c(5, 4, 4, 3, 2))
+skill_dots_data <-
+  create_skill_bar_data(5,
+                        c("R", "SQL", "Tableau", "Git", "HTML", "CSS", "Python"),
+                        c(5, 4, 4, 4, 3, 3, 2))
 
-# test <-
-#   tibble(
-#     skill = c(
-#       rep("R", 5),
-#       rep("SQL", 5),
-#       rep("Tableau", 5),
-#       rep("Git", 5),
-#       rep("Python", 5)
-#     ),
-#     max_level = c(1:5, 1:5, 1:5, 1:5, 1:5),
-#     skill_level = c(
-#       rep("Fill", 5),
-#       rep("Fill", 4),
-#       "Empty",
-#       rep("Fill", 4),
-#       "Empty",
-#       rep("Fill", 4),
-#       "Empty",
-#       rep("Fill", 4),
-#       "Empty"
-#     )
-#   )
 
-test %>% 
-  ggplot()+
-  geom_point(aes(x = max_level, y = fct_rev(fct_inorder(skill)), color = skill_level), size = 40)+
-  geom_hline(yintercept = c(seq(1.5, 4.5, by = 1)), color = "#ffe6e8", linetype = 2, size = 5)+
-  geom_segment(color = "#ffe6e8", linetype = 2, y = 1.5, yend = 1.5, x = -1, xend = 0.76, size = 5)+
-  geom_segment(color = "#ffe6e8", linetype = 2, y = 2.5, yend = 2.5, x = -1, xend = 0.76, size = 5)+
-  geom_segment(color = "#ffe6e8", linetype = 2, y = 3.5, yend = 3.5, x = -1, xend = 0.76, size = 5)+
-  geom_segment(color = "#ffe6e8", linetype = 2, y = 4.5, yend = 4.5, x = -1, xend = 0.76, size = 5)+
-  coord_cartesian(xlim = c(1, 5), clip = "off")+
-  scale_color_manual(values = c("light gray", "navy"))+
-  theme(axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.line = element_blank(),
-        axis.text.x = element_blank(),
-        axis.text.y = element_text(margin = margin(0,10,0,0),
-                                   size = 80,
-                                   face = "bold",
-                                   color = "#737373",
-                                   hjust = 0),
-        plot.background = element_rect(fill = "#f5f8fc"),
-        panel.background = element_rect(fill = "#f5f8fc"),
-        legend.position = "none")
+
+skill_dots_data %>%
+  ggplot() +
+  geom_point(aes(
+    x = max_level,
+    y = fct_rev(fct_inorder(skill)),
+    color = skill_level
+  ), size = 40) +
+  geom_hline(
+    yintercept = c(seq(1.5, 6.5, by = 1)),
+    color = "#ffe6e8",
+    linetype = 2,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 1.5,
+    yend = 1.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 2.5,
+    yend = 2.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 3.5,
+    yend = 3.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 4.5,
+    yend = 4.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 5.5,
+    yend = 5.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 6.5,
+    yend = 6.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  coord_cartesian(xlim = c(1, 5), clip = "off") +
+  scale_color_manual(values = c("light gray", "navy")) +
+  theme(
+    axis.title = element_blank(),
+    axis.ticks = element_blank(),
+    axis.line = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(
+      margin = margin(0, 10, 0, 0),
+      size = 80,
+      face = "bold",
+      color = "#737373",
+      hjust = 0
+    ),
+    plot.background = element_rect(fill = "#f5f8fc"),
+    panel.background = element_rect(fill = "#f5f8fc"),
+    legend.position = "none"
+  )
 
 ```
 
-<i class="fa fa-users"></i> Interpersonal Skills {#skills}
+
+<i class="fa fa-certificate"></i> Certifications {#certs}
 --------------------------------------------------------------------------------
-
-```{r, message=F, warning=F, echo = F, fig.height=14, fig.width=18}
-
-library(tidyverse)
-
-skill_bar_data <- tibble(skills = c("R", "SQL", "Tableau", "Git", "Python"),
-                         levels = c(8, 7, 7, 6, 4))
+- IBM Data Science Fundamentals Specialization ([verification link](https://www.credly.com/badges/5269971e-1d74-4273-8115-072d18b88e05?source=linked_in_profile))
 
 
-skill_bar_data %>% 
-  ggplot(aes(x = levels, y = fct_rev(fct_reorder2(skills, skills, levels)))) +
-  geom_bar(fill = "#ffe6e8", aes(x = 8), stat = "identity", color = "light gray", size = 1)+
-  geom_bar(fill = "navy blue", stat = "identity", color = "light gray", size = 0.75)+
-  theme_classic()+
-  theme(axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.line = element_blank(),
-        axis.text.x = element_blank(),
-        axis.text.y = element_text(margin = margin(0,-15,0,0),
-                                   size = 80,
-                                   face = "bold",
-                                   color = "#737373"),
-        plot.background = element_rect(fill = "#f5f8fc"),
-        panel.background = element_rect(fill = "#f5f8fc"))
-
-```
-
-Disclaimer {#disclaimer style="width: var(--sidebar-width); padding-left: var(--sidebar-horizontal-padding);"}
+<i class="fa fa-laptop"></i> Skills {#skills}
 --------------------------------------------------------------------------------
-
-This resume was made with the R package [**pagedown**](https://github.com/rstudio/pagedown).
-My customized code used to produce it can be found on my GitLab [**here**]().
-Last updated on `r Sys.Date()`.
-
-Main
-================================================================================
-
-Sean Conner {#title}
---------------------------------------------------------------------------------
-
-### Currently searching for a Data Scientist position
-
-Some stuff here?
-
-### Skills
 <style>
 div.flex-child {
 flex: 0 1 auto;
@@ -218,25 +182,11 @@ align-self: center;
 }
 </style>
 
+
 <div style="display: flex; flex-wrap: wrap; max-width: 750px; padding: 3px; white-space: nowrap; align-items: center"; justify-content: center>
+
 <div class="flex-child">
 Data Visualization
-</div>
-
-<div class="flex-child">
-Statistical Analysis
-</div>
-
-<div class="flex-child">
-Regression
-</div>
-
-<div class="flex-child">
-Data Cleaning
-</div>
-
-<div class="flex-child">
-Writing
 </div>
 
 <div class="flex-child">
@@ -244,14 +194,89 @@ Shiny
 </div>
 
 <div class="flex-child">
+Writing
+</div>
+
+<div class="flex-child">
+Statistical Analysis
+</div>
+
+<div class="flex-child">
+Regression Modeling
+</div>
+
+<div class="flex-child">
+Data Cleaning
+</div>
+
+<div class="flex-child">
 R Markdown
+</div>
+
+<div class="flex-child">
+R tidyverse
 </div>
 
 <div class="flex-child">
 Business Intelligence
 </div>
 
+<div class="flex-child">
+Survey Design
 </div>
+
+<div class="flex-child">
+Microsoft Office
+</div>
+
+<div class="flex-child">
+GitHub / GitLab
+</div>
+
+<div class="flex-child">
+Time-Series
+</div>
+
+<div class="flex-child">
+Atlassian Cloud
+</div>
+
+<div class="flex-child">
+R Package Development
+</div>
+
+<div class="flex-child">
+Data Warehousing
+</div>
+
+<div class="flex-child">
+Econometrics
+</div>
+
+<div class="flex-child">
+Event-History Analysis
+</div>
+
+<div class="flex-child">
+Machine Learning
+</div>
+
+</div>
+
+
+Disclaimer {#disclaimer style="width: var(--sidebar-width); padding-left: var(--sidebar-horizontal-padding);"}
+--------------------------------------------------------------------------------
+This resume was made with the R package [**pagedown**](https://github.com/rstudio/pagedown).<br></br>
+Code available on my GitHub [**here**](https://github.com/scconner7/Pagedown-Resume).<br></br>
+Last updated on `r Sys.Date()`.
+
+
+Main
+================================================================================
+
+Sean Conner {#title}
+--------------------------------------------------------------------------------
+### Currently searching for a Data Scientist position
 
 
 
@@ -266,10 +291,11 @@ Remote full-time
 
 Present - Aug. 2020
 
-- Work daily with large, complex datasets to create automated report pipelines and business intelligence dashboards using combinations of SQL, R / RMarkdown, Shiny, Excel, and Tableau.
 - Conduct *ad hoc* strategic analyses of parcel shipping networks for multiple Fortune 100 companies, such as request for proposal (RFP) evaluations and network optimizations.
-- Led operations-wide roll-out of Git & GitLab with self-authored tutorial documents and live demos.
+- Work daily with large, complex datasets to create automated report pipelines and business intelligence dashboards using combinations of SQL, R / RMarkdown, Shiny, Excel, and Tableau.
 - Summarize and present *ad hoc*, weekly, and monthly analyses to audiences up to senior VP-level executives of Fortune 100 companies.
+- Developed and maintain an internal R package for the modularization of strategic analyses, creation / database upload of net rate matrices, and bulk, cross-customer exception management.
+- Led operations-wide roll-out of Git & GitLab with self-authored tutorial documents and live demos.
 - Lead weekly engineer alignment meetings to share methods and standardize work.
 
 
@@ -296,7 +322,7 @@ Starkville, MS
 Aug. 2019 - July 2017
 
 - Created Shiny web applications to clearly visualize customizable reports requested by stakeholders.
-- Performed event-history / survival analyses to project jurisdictions’ policy adoption likelihoods.
+- Performed event-history / survival analyses to estimate jurisdictions’ policy adoption likelihoods.
 - Presented academic research projects and attended interactive workshops at conferences around the country.
 
 
@@ -308,8 +334,7 @@ Starkville, MS
 
 May 2017 - Aug 2016
 
--	Taught students to shoot and edit television-quality video and audio.
--	Prepared lectures, graded assignments, and provided technical assistance to students.
+-	Taught students to record television-quality video and audio and edit both with Adobe Premiere.
 
 
 ### Technical Intern
@@ -350,7 +375,7 @@ Aug. 2018 - Aug. 2016
 GPA 4.00 / 4.00
 
 
-### University of Mississippi
+### University of Mississippi (UM)
 
 Bachelor of Arts in Political Science
 
@@ -359,7 +384,6 @@ Oxford, MS
 Aug. 2015 - Aug. 2010
 
 GPA 3.34 / 4.00
-
 
 
 Leadership & Awards {data-icon=medal data-concise=true}
@@ -378,7 +402,7 @@ Starkville, MS
 - Awarded cash prize for best graduate student presentation at MS Political Science Association Conference (2018).
 
 
-### University of MS
+### UM
 
 Student
 

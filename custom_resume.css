@@ -21,7 +21,7 @@
   --sidebar-horizontal-padding: 0.1in;
 
   /* XXX: using px for very good precision control */
-  --decorator-outer-offset-top: 5px;
+  --decorator-outer-offset-top: 11.5px;
   --decorator-outer-offset-left: -5.5px;
   --decorator-border-width: 1px;
   --decorator-outer-dim: 9px;
@@ -94,7 +94,7 @@ img{
 
 .aside{
   width: var(--sidebar-width);
-  padding: 0in var(--sidebar-horizontal-padding);
+  padding: 5px var(--sidebar-horizontal-padding);
   font-size: 0.8rem;
   float: right;
   position: absolute;
@@ -354,7 +354,7 @@ h1, h2{
 }
 
 .aside .level2{
-  margin-top: 0in;
+  margin-bottom: 0.05in;
 }
 
 #contact ul{
@@ -369,8 +369,28 @@ h1, h2{
   text-align: right;
 }
 
+#languages{
+  margin-top: 0.25in;
+}
+
+#certs {
+  margin-top: 0.15in;
+}
+
+#certs ul{
+  margin-top: 0.05in;
+  padding-left: 0;
+  color: solid black;
+}
+
+#certs li > i{
+  width: 0.9rem; /* for text alignment */
+  text-align: right;
+}
+
 #skills{
   line-height: 1.5;
+  margin-top: 0.25in;
 }
 
 #skills ul{
@@ -382,11 +402,13 @@ h1, h2{
   position: absolute;
   bottom: 0;
   right: var(--sidebar-horizontal-padding);
+  left: var(--sidebar-horizontal-padding);
   font-size: 0.75rem;
   font-style: italic;
   line-height: 1.1;
-  text-align: right;
+  text-align: left;
   color: #777;
+  padding: 0 0 0 5px;
 }
 
 #disclaimer code{
