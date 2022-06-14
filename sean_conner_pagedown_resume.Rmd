@@ -147,15 +147,15 @@ skill_dots_data %>%
     axis.line = element_blank(),
     axis.text.x = element_blank(),
     axis.text.y = element_text(
-      margin = margin(0, 10, 0, 0),
-      size = 80,
-      face = "bold",
+      margin = margin(0, 20, 0, 0),
+      size = 65,
       color = "#737373",
       hjust = 0
     ),
     plot.background = element_rect(fill = "#f5f8fc"),
     panel.background = element_rect(fill = "#f5f8fc"),
-    legend.position = "none"
+    legend.position = "none",
+    panel.grid = element_blank()
   )
 
 ```
@@ -301,7 +301,7 @@ Present - Aug. 2020
 
 ### Research Associate
 
-MSU - John C. Stennis Institute of Government
+MS State University - Stennis Institute of Government
 
 Starkville, MS
 
@@ -315,7 +315,7 @@ Aug. 2020 - Aug. 2019
 
 ### Graduate Research Assistant
 
-MSU - John C. Stennis Institute of Government
+MS State University - Stennis Institute of Government
 
 Starkville, MS
 
@@ -328,7 +328,7 @@ Aug. 2019 - July 2017
 
 ### Graduate Teaching Assistant
 
-MSU - Communications Dept.
+MS State University - Communications Dept.
 
 Starkville, MS
 
@@ -347,13 +347,13 @@ April 2014 - Jan. 2014
 
 -	Collected and cataloged program inventory data from county-regional and private prison facilities across the state for the Pew-MacArthur Results First Initiative, a comprehensive cost-benefit analysis of government programs across the country.
 - Provided legislative briefs and data visualizations to committee members.
-- Assisted with survey questionnaire construction, sampling, and presentations of finding.
+- Assisted with survey questionnaire construction, sampling, and presentations of findings.
 
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
-### Mississippi State University (MSU)
+### MS State University
 
 Ph.D - Public Policy and Administration
 
@@ -364,7 +364,7 @@ Present (anticipated graduation Fall 2023)
 GPA 4.00 / 4.00
 
 
-### MSU
+### MS State University
 
 Master of Public Policy and Administration (MPPA)
 
@@ -375,7 +375,7 @@ Aug. 2018 - Aug. 2016
 GPA 4.00 / 4.00
 
 
-### University of Mississippi (UM)
+### University of MS
 
 Bachelor of Arts in Political Science
 
@@ -389,30 +389,30 @@ GPA 3.34 / 4.00
 Leadership & Awards {data-icon=medal data-concise=true}
 --------------------------------------------------------------------------------
 
-### MSU
+### MS State University
 
 Student
 
 Starkville, MS
 
-- Voted Outstanding Graduate Student by faculty (2018).
+- Outstanding Graduate Student (2018).
 - Student Representative for MPPA program (September 2017 – May 2018).
-- Graduate Student Advisor to Stennis-Montgomery Association, a student organization promoting civic engagement (2018).
+- Graduate Student Adviser to Stennis-Montgomery Association, a student organization promoting civic engagement (2018).
 - The Honor Society of Phi Kappa Phi (2017-2018).
-- Awarded cash prize for best graduate student presentation at MS Political Science Association Conference (2018).
+- Best Graduate Student Presentation at MS Political Science Association Conference (2018).
 
 
-### UM
+### University of MS
 
 Student
 
 Oxford, MS
 
 - Dean’s List (four semesters).
-- Represented UM at the National Model UN in NYC (2010).
+- Representative for University of MS at the National Model United Nations in NYC (2010).
 - Pi Sigma Alpha, the Political Science Honors Society (2014-2015).
 - Provost Scholar (2010-2015).
-- Elected President of the Senate for UM Model Senate (Fall 2013).
+- President of the Senate for University of MS Model Senate (Fall 2013).
 
 
 
