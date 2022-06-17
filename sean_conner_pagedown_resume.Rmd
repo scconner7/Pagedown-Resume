@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
     # set it to true for a self-contained HTML page but it'll take longer to render
-    self_contained: true
+    self_contained: TRUE
     css:
       - custom_resume.css
 # uncomment this line to produce HTML and PDF in RStudio:
@@ -150,12 +150,13 @@ skill_dots_data %>%
       margin = margin(0, 20, 0, 0),
       size = 65,
       color = "#737373",
-      hjust = 0
+      hjust = 0,
     ),
-    plot.background = element_rect(fill = "#f5f8fc"),
-    panel.background = element_rect(fill = "#f5f8fc"),
+    plot.background = element_rect(fill = "#f5f8fc", color = "#f5f8fc"),
+    panel.background = element_rect(fill = "#f5f8fc", color = "#f5f8fc"),
     legend.position = "none",
-    panel.grid = element_blank()
+    panel.grid = element_blank(),
+    panel.border = element_rect(fill = NA, color = "#f5f8fc")
   )
 
 ```
@@ -218,6 +219,10 @@ R tidyverse
 </div>
 
 <div class="flex-child">
+Data Engineering
+</div>
+
+<div class="flex-child">
 Business Intelligence
 </div>
 
@@ -230,7 +235,7 @@ Microsoft Office
 </div>
 
 <div class="flex-child">
-GitHub / GitLab
+GitLab / GitHub
 </div>
 
 <div class="flex-child">
