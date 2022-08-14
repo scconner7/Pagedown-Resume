@@ -1,0 +1,423 @@
+---
+title: "Sean Conner resume"
+author: Sean Conner
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: TRUE
+    css:
+      - custom_resume.css
+# uncomment this line to produce HTML and PDF in RStudio:
+knit: pagedown::chrome_print
+---
+
+```{r setup, include = F}
+
+library(tidyverse)
+
+```
+
+
+Aside
+================================================================================
+
+Contact Info {#contact}
+--------------------------------------------------------------------------------
+- <i class="fa fa-envelope"></i> scconner7@gmail.com
+- <i class="fa fa-phone"></i> +1 601-490-5086
+- <i class="fa fa-github"></i> [github.com/scconner7](https://github.com/scconner7)
+
+
+<i class="fa fa-toolbox"></i> Languages and Tools {#languages}
+--------------------------------------------------------------------------------
+```{r, message=F, warning=F, echo = F, fig.height=14, fig.width=18}
+
+create_skill_bar_data <-
+  function(max_skill_level,
+           skill_names,
+           skill_levels) {
+    skill_col <- function(skill_names, max_skill_level) {
+      skill_names %>%
+        map(~ rep(.x, max_skill_level)) %>%
+        reduce(c)
+    }
+    
+    df <-
+      data.frame(skill = skill_col(skill_names, max_skill_level))
+    
+    max_level_col <- function(max_skill_level, skill_names) {
+      rep(1:max_skill_level, length(skill_names))
+    }
+    
+    df <- df %>%
+      mutate(max_level = max_level_col(max_skill_level, skill_names))
+    
+    skill_level_col <- function(skill_levels, max_skill_level) {
+      skill_levels %>%
+        map(~ c(rep("Fill", .x), rep("Empty", max_skill_level - .x))) %>%
+        reduce(c)
+    }
+    
+    df <- df %>%
+      mutate(skill_level = skill_level_col(skill_levels, max_skill_level))
+    
+    df
+  }
+
+skill_dots_data <-
+  create_skill_bar_data(5,
+                        c("R", "SQL", "Tableau", "Git", "HTML", "CSS", "Python"),
+                        c(5, 4, 4, 4, 3, 3, 2))
+
+
+
+skill_dots_data %>%
+  ggplot() +
+  geom_point(aes(
+    x = max_level,
+    y = fct_rev(fct_inorder(skill)),
+    color = skill_level
+  ), size = 40) +
+  geom_hline(
+    yintercept = c(seq(1.5, 6.5, by = 1)),
+    color = "#ffe6e8",
+    linetype = 2,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 1.5,
+    yend = 1.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 2.5,
+    yend = 2.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 3.5,
+    yend = 3.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 4.5,
+    yend = 4.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 5.5,
+    yend = 5.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  geom_segment(
+    color = "#ffe6e8",
+    linetype = 2,
+    y = 6.5,
+    yend = 6.5,
+    x = -1,
+    xend = 0.76,
+    size = 5
+  ) +
+  coord_cartesian(xlim = c(1, 5), clip = "off") +
+  scale_color_manual(values = c("light gray", "navy")) +
+  theme(
+    axis.title = element_blank(),
+    axis.ticks = element_blank(),
+    axis.line = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(
+      margin = margin(0, 20, 0, 0),
+      size = 65,
+      color = "#737373",
+      hjust = 0,
+    ),
+    plot.background = element_rect(fill = "#f5f8fc", color = "#f5f8fc"),
+    panel.background = element_rect(fill = "#f5f8fc", color = "#f5f8fc"),
+    legend.position = "none",
+    panel.grid = element_blank(),
+    panel.border = element_rect(fill = NA, color = "#f5f8fc")
+  )
+
+```
+
+
+<i class="fa fa-certificate"></i> Certifications {#certs}
+--------------------------------------------------------------------------------
+- IBM Data Science Fundamentals Specialization ([verification link](https://www.credly.com/badges/5269971e-1d74-4273-8115-072d18b88e05?source=linked_in_profile))
+
+
+<i class="fa fa-laptop"></i> Skills {#skills}
+--------------------------------------------------------------------------------
+<style>
+div.flex-child {
+flex: 0 1 auto;
+background-color: #eff3ff;
+border: 1px solid #d9d9d9;
+border-radius: 5px;
+box-sizing: border-box;
+margin: 3px;
+padding: 2px 5px 2px 5px;
+max-height: 30px;
+align-self: center;
+}
+</style>
+
+
+<div style="display: flex; flex-wrap: wrap; max-width: 750px; padding: 3px; white-space: nowrap; align-items: center"; justify-content: center>
+
+<div class="flex-child">
+Data Visualization
+</div>
+
+<div class="flex-child">
+Shiny
+</div>
+
+<div class="flex-child">
+Writing
+</div>
+
+<div class="flex-child">
+Statistical Analysis
+</div>
+
+<div class="flex-child">
+Regression Modeling
+</div>
+
+<div class="flex-child">
+Data Cleaning
+</div>
+
+<div class="flex-child">
+R Markdown
+</div>
+
+<div class="flex-child">
+R tidyverse
+</div>
+
+<div class="flex-child">
+Data Engineering
+</div>
+
+<div class="flex-child">
+Business Intelligence
+</div>
+
+<div class="flex-child">
+Survey Design
+</div>
+
+<div class="flex-child">
+Microsoft Office
+</div>
+
+<div class="flex-child">
+GitLab / GitHub
+</div>
+
+<div class="flex-child">
+Time-Series
+</div>
+
+<div class="flex-child">
+Atlassian Cloud
+</div>
+
+<div class="flex-child">
+R Package Development
+</div>
+
+<div class="flex-child">
+Data Warehousing
+</div>
+
+<div class="flex-child">
+Econometrics
+</div>
+
+<div class="flex-child">
+Event-History Analysis
+</div>
+
+<div class="flex-child">
+Machine Learning
+</div>
+
+</div>
+
+
+Disclaimer {#disclaimer style="width: var(--sidebar-width); padding-left: var(--sidebar-horizontal-padding);"}
+--------------------------------------------------------------------------------
+This resume was made with the R package [**pagedown**](https://github.com/rstudio/pagedown).<br></br>
+Code available on my GitHub [**here**](https://github.com/scconner7/Pagedown-Resume).<br></br>
+Last updated on `r Sys.Date()`.
+
+
+Main
+================================================================================
+
+Sean Conner {#title}
+--------------------------------------------------------------------------------
+
+
+Professional Experience {data-icon=laptop}
+--------------------------------------------------------------------------------
+
+### Solutions Engineer II
+
+Green Mountain Technology
+
+Remote full-time
+
+Present - Aug. 2020
+
+- Conduct *ad hoc* strategic analyses of parcel shipping networks for multiple Fortune 100 companies, such as request for proposal (RFP) evaluations and network optimizations.
+- Work daily with large, complex datasets to create automated report pipelines and business intelligence dashboards using combinations of SQL, R / RMarkdown, Shiny, Excel, and Tableau.
+- Summarize and present *ad hoc*, weekly, and monthly analyses to audiences up to senior VP-level executives of Fortune 100 companies.
+- Developed and maintain an internal R package for the modularization of strategic analyses, creation / database upload of net rate matrices, and bulk, cross-customer exception management.
+- Led operations-wide roll-out of Git & GitLab with self-authored tutorial documents and live demos.
+- Lead weekly engineer alignment meetings to share methods and standardize work.
+
+
+### Research Associate
+
+MS State University - Stennis Institute of Government
+
+Starkville, MS
+
+Aug. 2020 - Aug. 2019
+
+- Conducted factor analysis and regression modeling of state agencies’ employee engagement and turnover intention.
+- Presented results to state agency executives, academic conferences, and local-level elected officials.
+- Served as principal investigator (PI) on three survey projects.
+- Served as Co-PI on a comprehensive program inventory report of education, health, and safety programs provided to K-12 children in MS for the state auditor's office.
+
+
+### Graduate Research Assistant
+
+MS State University - Stennis Institute of Government
+
+Starkville, MS
+
+Aug. 2019 - July 2017
+
+- Created Shiny web applications to clearly visualize customizable reports requested by stakeholders.
+- Performed event-history / survival analyses to estimate jurisdictions’ policy adoption likelihoods.
+- Presented academic research projects and attended interactive workshops at conferences around the country.
+
+
+### Graduate Teaching Assistant
+
+MS State University - Communications Dept.
+
+Starkville, MS
+
+May 2017 - Aug 2016
+
+-	Taught students to record television-quality video and audio and edit both with Adobe Premiere.
+
+
+### Technical Intern
+
+MS Legislative PEER Committee
+
+Jackson, MS
+
+April 2014 - Jan. 2014
+
+-	Collected and cataloged program inventory data from county-regional and private prison facilities across the state for the Pew-MacArthur Results First Initiative, a comprehensive cost-benefit analysis of government programs across the country.
+- Provided legislative briefs and data visualizations to committee members.
+- Assisted with survey questionnaire construction, sampling, and presentations of findings.
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+### MS State University
+
+Ph.D - Public Policy and Administration
+
+Starkville, MS
+
+Present (anticipated graduation Fall 2023)
+
+GPA 4.00 / 4.00
+
+
+### MS State University
+
+Master of Public Policy and Administration (MPPA)
+
+Starkville, MS
+
+Aug. 2018 - Aug. 2016
+
+GPA 4.00 / 4.00
+
+
+### University of MS
+
+Bachelor of Arts in Political Science
+
+Oxford, MS
+
+Aug. 2015 - Aug. 2010
+
+GPA 3.34 / 4.00
+
+
+Leadership & Awards {data-icon=medal data-concise=true}
+--------------------------------------------------------------------------------
+
+### MS State University
+
+Student
+
+Starkville, MS
+
+- Outstanding Graduate Student (2018).
+- Student Representative for MPPA program (September 2017 – May 2018).
+- Graduate Student Adviser to Stennis-Montgomery Association, a student organization promoting civic engagement (2018).
+- The Honor Society of Phi Kappa Phi (2017-2018).
+- Best Graduate Student Presentation at MS Political Science Association Conference (2018).
+
+
+### University of MS
+
+Student
+
+Oxford, MS
+
+- Dean’s List (four semesters).
+- Representative for University of MS at the National Model United Nations in NYC (2010).
+- Pi Sigma Alpha, the Political Science Honors Society (2014-2015).
+- Provost Scholar (2010-2015).
+- President of the Senate for University of MS Model Senate (Fall 2013).
+
+
+
+
+ 
