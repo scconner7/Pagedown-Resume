@@ -215,6 +215,10 @@ R Markdown
 </div>
 
 <div class="flex-child">
+Quarto
+</div>
+
+<div class="flex-child">
 R tidyverse
 </div>
 
@@ -247,7 +251,7 @@ Atlassian Cloud
 </div>
 
 <div class="flex-child">
-R Package Development
+R Package Dev
 </div>
 
 <div class="flex-child">
@@ -297,9 +301,9 @@ Present - Aug. 2020
 - Conduct *ad hoc* strategic analyses of parcel shipping networks for multiple Fortune 100 companies, such as request for proposal (RFP) evaluations and network optimizations.
 - Work daily with large, complex datasets to create automated report pipelines and business intelligence dashboards using combinations of SQL, R / RMarkdown, Shiny, Excel, and Tableau.
 - Summarize and present *ad hoc*, weekly, and monthly analyses to audiences up to senior VP-level executives of Fortune 100 companies.
-- Developed and maintain an internal R package for the modularization of strategic analyses, creation / database upload of net rate matrices, and bulk, cross-customer exception management.
+- Develop and maintain an internal R package for the modularization of strategic analyses, creation / database upload of net rate matrices, and bulk, cross-customer exception management.
 - Led operations-wide roll-out of Git & GitLab with self-authored tutorial documents and live demos.
-- Lead weekly engineer alignment meetings to share methods and standardize work.
+- Organized weekly engineer alignment meetings to share methods and standardize work.
 
 
 ### Research Associate
@@ -391,6 +395,15 @@ GPA 3.34 / 4.00
 
 Leadership & Awards {data-icon=medal data-concise=true}
 --------------------------------------------------------------------------------
+
+### Green Mountain Technology
+
+Solutions Engineer II
+
+Remote full-time
+
+- Most Valuable Player (MVP) Award, nominated by peers and chosen by senior leadership for 1 of only 2 such awards company-wide each year (2022).
+
 
 ### MS State University
 
