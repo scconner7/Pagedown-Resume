@@ -67,8 +67,8 @@ create_skill_bar_data <-
 
 skill_dots_data <-
   create_skill_bar_data(5,
-                        c("R", "SQL", "Tableau", "Git", "HTML", "CSS", "Python"),
-                        c(5, 4, 4, 4, 3, 3, 2))
+                        c("R", "SQL", "Tableau", "HTML", "CSS", "Git", "Python"),
+                        c(5, 5, 4, 4, 4, 4, 3))
 
 
 
@@ -290,7 +290,7 @@ Sean Conner {#title}
 Professional Experience {data-icon=laptop}
 --------------------------------------------------------------------------------
 
-### Solutions Engineer II
+### Senior Solutions Engineer
 
 Green Mountain Technology
 
@@ -298,10 +298,10 @@ Remote full-time
 
 Present - Aug. 2020
 
-- Conduct *ad hoc* strategic analyses of parcel shipping networks for multiple Fortune 100 companies, such as request for proposal (RFP) evaluations and network optimizations.
-- Work daily with large, complex datasets to create automated report pipelines and business intelligence dashboards using combinations of SQL, R / RMarkdown, Shiny, Excel, and Tableau.
-- Summarize and present *ad hoc*, weekly, and monthly analyses to audiences up to senior VP-level executives of Fortune 100 companies.
-- Develop and maintain an internal R package for the modularization of strategic analyses, creation / database upload of net rate matrices, and bulk, cross-customer exception management.
+- Conduct *ad hoc* strategic analyses of parcel shipping networks, such as request for proposal (RFP) evaluations and network optimizations for multiple Fortune 100 companies.
+- Work daily with large, complex datasets to create automated report pipelines, parameterized analytics models, and business intelligence dashboards using combinations of SQL, R / RMarkdown, Shiny, Excel, and Tableau.
+- Summarized and presented *ad hoc*, weekly, and monthly analyses to audiences up to senior VP-level executives of Fortune 100 companies.
+- Develop and maintain two internal R packages, a SQL schema, and an R Shiny web app that empower account delivery teams to load and configure customer contracts as strategic modeling scenarios for standardized analytics models.
 - Led operations-wide roll-out of Git & GitLab with self-authored tutorial documents and live demos.
 - Organized weekly engineer alignment meetings to share methods and standardize work.
 
@@ -314,8 +314,7 @@ Starkville, MS
 
 Aug. 2020 - Aug. 2019
 
-- Conducted factor analysis and regression modeling of state agencies’ employee engagement and turnover intention.
-- Presented results to state agency executives, academic conferences, and local-level elected officials.
+- Conducted factor analysis and regression modeling of state agencies’ employee engagement and turnover intentions.
 - Served as principal investigator (PI) on three survey projects.
 - Served as Co-PI on a comprehensive program inventory report of education, health, and safety programs provided to K-12 children in MS for the state auditor's office.
 
@@ -354,7 +353,6 @@ April 2014 - Jan. 2014
 
 -	Collected and cataloged program inventory data from county-regional and private prison facilities across the state for the Pew-MacArthur Results First Initiative, a comprehensive cost-benefit analysis of government programs across the country.
 - Provided legislative briefs and data visualizations to committee members.
-- Assisted with survey questionnaire construction, sampling, and presentations of findings.
 
 
 Education {data-icon=graduation-cap data-concise=true}
@@ -366,7 +364,7 @@ Ph.D - Public Policy and Administration
 
 Starkville, MS
 
-Present (anticipated graduation Fall 2023)
+Present (Currently A.B.D. - anticipated graduation Fall 2025)
 
 GPA 4.00 / 4.00
 
@@ -398,11 +396,12 @@ Leadership & Awards {data-icon=medal data-concise=true}
 
 ### Green Mountain Technology
 
-Solutions Engineer II
+Senior Solutions Engineer
 
 Remote full-time
 
-- Most Valuable Player (MVP) Award, nominated by peers and chosen by senior leadership for 1 of only 2 such awards company-wide each year (2022).
+- Most Valuable Player (MVP) Award, nominated by peers and chosen by senior leadership as winner of 1 of only 2 such honors awarded company-wide each year (Winner in 2022 and nominated again 2023).
+- Discretionary Executive Leadership Bonus for Innovation recipient 2 consecutive years (2022 & 2023)
 
 
 ### MS State University
